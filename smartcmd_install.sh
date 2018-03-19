@@ -1,6 +1,6 @@
 #! /bin/bash
-mv ~/.smartcmd ~/.smartcmd.bak
-git clone https://github.com/imbakn/smartcmd ~/.smartcmd
+# mv ~/.smartcmd ~/.smartcmd.bak
+# git clone https://github.com/imbakn/smartcmd ~/.smartcmd
 
 
 
