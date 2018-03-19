@@ -1,0 +1,10 @@
+if [ -f "$T/.myfavories" ]
+then
+   DIR=`cat $T/.myfavories | fzf`
+   if [ -d "$T/$DIR" ]
+   then
+      cd $T/$DIR
+   else
+      vim $T/$DIR
+   fi
+fi
