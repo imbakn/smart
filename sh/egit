@@ -1,0 +1,9 @@
+#! /bin/bash
+GITLIST=`find ./ -name .git`
+for PROJECT in $GITLIST
+do
+	echo -e "\033[33m==================$PROJECT===================\033[0m"
+	cd  $PROJECT/..
+	git $@
+	cd -
+done

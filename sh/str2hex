@@ -1,0 +1,18 @@
+#! /bin/bash
+[ -z $1 ]  && echo 'please input a argu.' && exit
+
+if [ -z $2 ]
+then
+	lenth=`expr length $1`
+else
+	lenth=$2
+fi
+echo $length
+printstr=""
+string=$1
+for (( i = 0; i < $lenth/2; i++)); do
+tmp='\x'${string:$(($i*2)):2}
+printstr=$printstr$tmp
+done
+
+echo -en "$printstr"

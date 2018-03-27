@@ -1,0 +1,10 @@
+#! /bin/bash
+GITLIST=`find ./ -name .git`
+for PROJECT in $GITLIST
+do
+	cd  $PROJECT/..
+	pro=`git config --get remote.origin.projectname`
+	echo -e "\033[33m==================$pro===================\033[0m"
+	repo status $pro
+	cd -
+done
