@@ -1,4 +1,3 @@
-alias gedit='vim'
 alias c='cd'
 alias b='bcompare'
 alias v='f -e vim'
