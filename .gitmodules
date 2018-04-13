@@ -1,3 +1,6 @@
 [submodule "modules/spf13-vim"]
 	path = modules/spf13-vim
 	url = https://github.com/spf13/spf13-vim
+[submodule "modules/fzf"]
+	path = modules/fzf
+	url = https://github.com/junegunn/fzf.git
