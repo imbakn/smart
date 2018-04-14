@@ -2,8 +2,7 @@
 
 export SMARTDIR=~/.smart
 
-SMART_BASHRCC=$SMARTDIR/common.rc
-SMART_BASHRCU=$SMARTDIR/user.rc
+SMART_BASHRC=$SMARTDIR/common.rc
 SMART_EXEC=$SMARTDIR/exec
 
 
@@ -54,7 +53,6 @@ addpathdir()
     done
 }
 
-
-sourcedir $SMART_BASHRCC
-sourcedir $SMART_BASHRCU
+sourcedir $SMART_BASHRC
+[ -d $SMARTDIR/personal/user.rc ] && sourcedir $SMARTDIR/personal/user.rc
 addpathdir $SMART_EXEC
