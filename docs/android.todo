@@ -1,27 +1,11 @@
 repo xml projects last accesstime fzf
 
-inotify
+adb inotify ncurses
 
-adb
+python gdb/lldb debug
 
-ncurses
-
-adb ps kill fzf
-
-adb install many apk one time
-
-android view fenxi
-
-vim copy from system
-
-vim plugs
-
-tmux mulu sync
-
-mux projects settings
+android view
 
 wav gen
 
 vectordrawable convert
-
-python gdb/lldb debug

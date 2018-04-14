@@ -1,0 +1,13 @@
+#! /bin/bash
+
+filesuf()
+{
+    local WHOLE_NAME=$1
+    local FILE_NAME=$(basename "$WHOLE_NAME")
+    echo ${FILE_NAME##*.}
+}
+
+for apk in $*
+do
+   [ -f $apk ] && [ $(filesuf $apk) = "apk" ] && adb install $apk
+done
