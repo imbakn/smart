@@ -1,1 +1,1 @@
-bind -x '"C-p": "psf"'
+bind -x '"\C-p": "psf"'

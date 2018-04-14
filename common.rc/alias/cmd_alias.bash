@@ -1,5 +1,5 @@
 alias c='cd'
-alias g='gedit'
+alias g='gnome-open'
 alias v='vim'
 alias p='psf'
 alias b='bcompare'
