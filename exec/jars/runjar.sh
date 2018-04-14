@@ -10,14 +10,9 @@ get_current_dir()
 	DIR="$( cd -P "$( dirname "$SOURCE"  )" && pwd  )"
 	echo $DIR
 }
-
 CDIR=$(get_current_dir $0)
-echo CDIR:$CDIR
 CALLNAME=`basename $0`
-echo CALLNAME:$CALLNAME
-echo `pwd`
-HASLINK=`ls -n $0 | awk '{print $10}'`
-echo HASLINK:$HASLINK
+HASLINK=`ls -l $0 | cut -d'>' -s -f2`
 if [ -z $HASLINK ] || [[ `basename $HASLINK` == $CALLNAME ]]
 then
 #create a link for jar file
@@ -25,22 +20,19 @@ then
 	SUFFIX=${PARAM1##*.}
 	JARNAME=`basename -s .jar $PARAM1`
 	WJARPATH=$CDIR"/"$JARNAME".jar"
-	echo ============
-	echo $#
-	echo "$WJARPATH"
-	echo $SUFFIX
-	echo ============
+	# echo ============
+	# echo $#
+	# echo "$WJARPATH"
+	# echo $SUFFIX
+	# echo ============
 	if [  $# -lt  1 ] || [[ $SUFFIX != "jar" ]] || [ ! -f "$WJARPATH" ]
 	then
 		echo "usage: $CALLNAME _path_of_jar_"
 	else
-		echo  $CDIR"/"$CALLNAME link to /usr/bin/$JARNAME
-		sudo ln -s $CDIR"/"$CALLNAME /usr/bin/$JARNAME
+		ln -s $CDIR"/"$CALLNAME $SMARTDIR/exec/jarlinks/$JARNAME && \
+		echo  $CDIR"/"$CALLNAME link to $SMARTDIR/exec/jarlinks/$JARNAME
 	fi
 else
 #call the jar file
 	java -jar $CDIR/$CALLNAME".jar" $@
 fi
-
-
-
