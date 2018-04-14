@@ -29,6 +29,7 @@ then
 	then
 		echo "usage: $CALLNAME _path_of_jar_"
 	else
+		[ -d $SMARTDIR/exec/jarlinks ] || mkdir -p $SMARTDIR/exec/jarlinks > /dev/null
 		ln -s $CDIR"/"$CALLNAME $SMARTDIR/exec/jarlinks/$JARNAME && \
 		echo  $CDIR"/"$CALLNAME link to $SMARTDIR/exec/jarlinks/$JARNAME
 	fi
