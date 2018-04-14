@@ -2,6 +2,7 @@ alias c='cd'
 alias g='gnome-open'
 alias v='vim'
 alias p='psf'
+alias sp='spsf'
 alias b='bcompare'
 
 ##################################################
