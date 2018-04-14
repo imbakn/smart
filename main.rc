@@ -20,16 +20,12 @@ filesuf()
 sourceone()
 {
     local FILE_TO_SOURCE=$1
-
     CURRENT_SHELL=$SMART_SHELL
     FILETYPE=$(filesuf $FILE_TO_SOURCE)
-    echo $FILE_TO_SOURCE
-    echo $FILETYPE
-    echo $CURRENT_SHELL
-    if [ x"$FILE_TO_SOURCE" = x ] || [ x"$FILETYPE" = x"$CURRENT_SHELL" ]
+    BASENAME=$(basename "$FILE_TO_SOURCE")
+    if [ x"$FILETYPE" = x"$CURRENT_SHELL" ] || [ x"$BASENAME" = x"$FILETYPE" ]
     then
         source $FILE_TO_SOURCE
-        echo $FILE_TO_SOURCE is sourced
     fi
 }
 
