@@ -11,13 +11,18 @@ alias lower="tr [A-Z] [a-z]"
 alias upper="tr [a-z] [A-Z]"
 
 
-#################################################
-alias rmt="adb remount"
+##################### ADB ########################
+alias rmt="adb wait-for-device && adb remount"
 alias rbt="adb reboot"
-alias shl="adb shell"
+alias shl="adb wait-for-device && adb shell"
 alias log="adb logcat"
-alias push="adb push"
+alias push="adb wait-for-device && adb push"
 alias pull="adb pull"
+alias ist="adb install"
+
+###################### REPO ######################
+alias rp='repoupload'
+alias rs='repo sync -j4'
 
 #################################################
 alias t='[ -z "$T" ] || eval "cd $T"'
