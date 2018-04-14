@@ -1,0 +1,38 @@
+#! /usr/bin/env bash
+
+export SMARTDIR=~/.smart
+
+SMART_BASHRCC=$SMARTDIR/common.rc
+SMART_BASHRCU=$SMARTDIR/user.rc
+SMART_EXEC=$SMARTDIR/exec
+
+
+sourcedir()
+{
+    local SOURCEDIR=$1
+    for list in $(ls $SOURCEDIR)
+    do
+       [ -f $SOURCEDIR/$list ] && source $SOURCEDIR/$list
+       [ -d $SOURCEDIR/$list ] && sourcedir $SOURCEDIR/$list
+    done
+}
+
+addpath()
+{
+    local PATHTOADD=$1
+    export PATH=$PATHTOADD:$PATH
+}
+
+addpathdir()
+{
+    local ADDPATHDIR=$1
+    for list in $(ls $ADDPATHDIR)
+    do
+       addpath $ADDPATHDIR/$list
+    done
+}
+
+
+sourcedir $SMART_BASHRCC
+sourcedir $SMART_BASHRCU
+addpathdir $SMART_EXEC
