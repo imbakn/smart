@@ -1,4 +1,9 @@
+#! /bin/bash
+
 TO_KILL=`ps -ef | fzf`
 PID=`echo $TO_KILL | awk '{print $2}'`
 NAME=`echo $TO_KILL | awk '{print $8}'`
-kill -9 $PID && echo "$NAME is killed..."
+if [ x"$PID" != x ] && [ x"$PID" != xPID ]
+then
+    kill -9 $PID && echo "$NAME is killed..."
+fi

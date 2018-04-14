@@ -7,12 +7,38 @@ SMART_BASHRCU=$SMARTDIR/user.rc
 SMART_EXEC=$SMARTDIR/exec
 
 
+filename=$(basename "$fullfile")
+extension="${filename##*.}"
+
+filesuf()
+{
+    local WHOLE_NAME=$1
+    local FILE_NAME=$(basename "$WHOLE_NAME")
+    echo ${FILE_NAME##*.}
+}
+
+sourceone()
+{
+    local FILE_TO_SOURCE=$1
+
+    CURRENT_SHELL=$SMART_SHELL
+    FILETYPE=$(filesuf $FILE_TO_SOURCE)
+    echo $FILE_TO_SOURCE
+    echo $FILETYPE
+    echo $CURRENT_SHELL
+    if [ x"$FILE_TO_SOURCE" = x ] || [ x"$FILETYPE" = x"$CURRENT_SHELL" ]
+    then
+        source $FILE_TO_SOURCE
+        echo $FILE_TO_SOURCE is sourced
+    fi
+}
+
 sourcedir()
 {
     local SOURCEDIR=$1
     for list in $(ls $SOURCEDIR)
     do
-       [ -f $SOURCEDIR/$list ] && source $SOURCEDIR/$list
+       [ -f $SOURCEDIR/$list ] && sourceone $SOURCEDIR/$list
        [ -d $SOURCEDIR/$list ] && sourcedir $SOURCEDIR/$list
     done
 }
