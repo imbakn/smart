@@ -18,7 +18,7 @@ killprocess()
     #     adb shell kill -9 $PID && echo "$NAME is killed..."
     SUDO_CMD="sudo "
     ANDROID_CMD="adb shell "
-    KILL_CMD="kill -9 $PID && echo \"$PNAME is killed...\""
+    KILL_CMD="kill -9 $PID "
 
     if [ x"$ANDROID" = "xtrue" ]; then
         KILL_CMD=$ANDROID_CMD$KILL_CMD
@@ -28,8 +28,7 @@ killprocess()
         KILL_CMD=$SUDO_CMD$KILL_CMD
     fi
 
-    echo $KILL_CMD
-    `$KILL_CMD`
+    `$KILL_CMD` && `echo "$PNAME is killed..."`
 }
 
 case $command in
