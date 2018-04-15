@@ -1,0 +1,25 @@
+#! /bin/bash
+# $T
+# $TARGET_PRODUCT
+# $TARGET_BUILD_VARIANT
+
+push_files()
+{
+    local FILE_PATH=$1
+    [ -f $FILE_PATH ] && adb remount && adb push $T/$FILE_PATH /"$FILE_PATH"
+}
+
+install_files()
+{
+    local FILE_PATH=$1
+    [ -f $FILE_PATH ] &&  adb install $T/$FILE_PATH
+}
+
+for file in $(cat $T/.system.change)
+do
+    if [ x$(basename $0) = x"auto_install" ] && [[ $(basename $file) == *.apk ]]; then
+        install_files $file
+    else
+        push_files $file
+    fi
+done
