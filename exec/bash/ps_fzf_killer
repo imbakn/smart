@@ -64,6 +64,10 @@ else
     TO_KILL=`ps -ef | fzf`
 fi
 
+if [ x"$KILL" != "xtrue" ]; then
+    exit 0
+fi
+
 PID=`echo $TO_KILL | awk '{print $2}'`
 if [ x"$ANDROID" = "xtrue" ]; then
     NAME=`echo $TO_KILL | awk '{print $6}'`
@@ -71,8 +75,4 @@ else
     NAME=`echo $TO_KILL | awk '{print $8}'`
 fi
 
-echo ======$KILL
-
-if [ x"$KILL" = "xtrue" ]; then
-    killprocess $PID $NAME $ANDROID $SUDO
-fi
+killprocess $PID $NAME $ANDROID $SUDO
