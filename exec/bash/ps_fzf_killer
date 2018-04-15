@@ -1,0 +1,81 @@
+#! /bin/bash
+
+command=$(basename $0)
+
+killprocess()
+{
+    local PID=$1
+    local PNAME=$2
+    local ANDROID=$3
+    local SUDO=$4
+
+    # echo PID:$PID
+    # echo PNAME:$PNAME
+    # echo ANDROID:$ANDROID
+    # echo SUDO:$SUDO
+
+    SUDO_CMD="sudo "
+    ANDROID_CMD="adb shell "
+    KILL_CMD="kill -9 $PID && echo \"$PNAME is killed...\""
+
+    if [ x"$ANDROID" = "xtrue" ] ; then
+        KILL_CMD=$ANDROID_CMD$KILL_CMD
+    fi
+    if [ x"$SUDO" = "xtrue" ] ; then
+        KILL_CMD=$SUDO_CMD$KILL_CMD
+    fi
+    `$KILL_CMD`
+}
+
+case $command in
+    "aps")
+        echo "run aps"
+        ANDROID=true
+        KILL=false
+        SUDO=false
+        ;;
+    "apsk")
+        echo "run apsk"
+        ANDROID=true
+        KILL=true
+        SUDO=false
+        ;;
+    "psf")
+        echo "run psf"
+        ANDROID=false
+        KILL=false
+        SUDO=false
+        ;;
+    "psk")
+        echo "run psk"
+        ANDROID=false
+        KILL=true
+        SUDO=false
+        ;;
+    "spsk")
+        echo "run spsk"
+        ANDROID=false
+        KILL=true
+        SUDO=true
+        ;;
+    *)
+        echo "wrong"
+    ;;
+esac
+
+if [ x"$ANDROID" = "xtrue" ]; then
+    TO_KILL=`adb shell ps > /tmp/ps && cat /tmp/ps | fzf`
+else
+    TO_KILL=`ps -ef | fzf`
+fi
+
+PID=`echo $TO_KILL | awk '{print $2}'`
+if [ x"$ANDROID" = "xtrue" ]; then
+    NAME=`echo $TO_KILL | awk '{print $6}'`
+else
+    NAME=`echo $TO_KILL | awk '{print $8}'`
+fi
+
+if [ x"$KILL" = "xtrue" ] && [ x"$PID" != x ] && [ x"$PID" != xPID ]; then
+    killprocess $PID $NAME $ANDROID $SUDO
+fi

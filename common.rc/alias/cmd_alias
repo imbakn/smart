@@ -13,12 +13,13 @@ alias upper="tr [a-z] [A-Z]"
 
 ##################### ADB ########################
 alias rmt="adb wait-for-device && adb remount"
-alias rbt="adb reboot"
+alias rbt="fastboot reboot || adb reboot"
 alias shl="adb wait-for-device && adb shell"
 alias log="adb logcat"
 alias push="adb wait-for-device && adb push"
 alias pull="adb pull"
 alias ist="adb install"
+alias atop="watch adb shell top -m 20 -s cpu -n 1"
 
 ###################### REPO ######################
 alias rp='repoupload'
