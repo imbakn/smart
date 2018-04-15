@@ -9,17 +9,27 @@ killprocess()
     local ANDROID=$3
     local SUDO=$4
 
-    echo PID:$PID
-    echo PNAME:$PNAME
-    echo ANDROID:$ANDROID
-    echo SUDO:$SUDO
+    # echo PID:$PID
+    # echo PNAME:$PNAME
+    # echo ANDROID:$ANDROID
+    # echo SUDO:$SUDO
     #     kill -9 $PID && echo "$NAME is killed..."
     #     sudo kill -9 $PID && echo "$NAME is killed..."
     #     adb shell kill -9 $PID && echo "$NAME is killed..."
     SUDO_CMD="sudo "
     ANDROID_CMD="adb shell "
     KILL_CMD="kill -9 $PID && echo \"$PNAME is killed...\""
+
+    if [ x"$ANDROID" = "xtrue" ]; then
+        KILL_CMD=$ANDROID_CMD$KILL_CMD
+    fi
+
+    if [ x"$SUDO" = "xtrue" ]; then
+        KILL_CMD=$SUDO_CMD$KILL_CMD
+    fi
+
     echo $KILL_CMD
+    `$KILL_CMD`
 }
 
 case $command in
@@ -75,4 +85,6 @@ else
     NAME=`echo $TO_KILL | awk '{print $8}'`
 fi
 
-killprocess $PID $NAME $ANDROID $SUDO
+if [ x"$PID" != "x" ] && [ x"$PID" != "xPID" ] ; then
+    killprocess $PID $NAME $ANDROID $SUDO
+fi
