@@ -9,57 +9,52 @@ killprocess()
     local ANDROID=$3
     local SUDO=$4
 
-    # echo PID:$PID
-    # echo PNAME:$PNAME
-    # echo ANDROID:$ANDROID
-    # echo SUDO:$SUDO
-
+    echo PID:$PID
+    echo PNAME:$PNAME
+    echo ANDROID:$ANDROID
+    echo SUDO:$SUDO
+    #     kill -9 $PID && echo "$NAME is killed..."
+    #     sudo kill -9 $PID && echo "$NAME is killed..."
+    #     adb shell kill -9 $PID && echo "$NAME is killed..."
     SUDO_CMD="sudo "
     ANDROID_CMD="adb shell "
     KILL_CMD="kill -9 $PID && echo \"$PNAME is killed...\""
-
-    if [ x"$ANDROID" = "xtrue" ] ; then
-        KILL_CMD=$ANDROID_CMD$KILL_CMD
-    fi
-    if [ x"$SUDO" = "xtrue" ] ; then
-        KILL_CMD=$SUDO_CMD$KILL_CMD
-    fi
-    `$KILL_CMD`
+    echo $KILL_CMD
 }
 
 case $command in
     "aps")
-        echo "run aps"
+        # echo "run aps"
         ANDROID=true
         KILL=false
         SUDO=false
         ;;
     "apsk")
-        echo "run apsk"
+        # echo "run apsk"
         ANDROID=true
         KILL=true
         SUDO=false
         ;;
     "psf")
-        echo "run psf"
+        # echo "run psf"
         ANDROID=false
         KILL=false
         SUDO=false
         ;;
     "psk")
-        echo "run psk"
+        # echo "run psk"
         ANDROID=false
         KILL=true
         SUDO=false
         ;;
     "spsk")
-        echo "run spsk"
+        # echo "run spsk"
         ANDROID=false
         KILL=true
         SUDO=true
         ;;
     *)
-        echo "wrong"
+        exit 0
     ;;
 esac
 
@@ -76,6 +71,8 @@ else
     NAME=`echo $TO_KILL | awk '{print $8}'`
 fi
 
-if [ x"$KILL" = "xtrue" ] && [ x"$PID" != x ] && [ x"$PID" != xPID ]; then
+echo ======$KILL
+
+if [ x"$KILL" = "xtrue" ]; then
     killprocess $PID $NAME $ANDROID $SUDO
 fi
