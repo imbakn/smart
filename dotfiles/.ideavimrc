@@ -1,0 +1,56 @@
+set hlsearch
+set incsearch
+set ignorecase
+" set smartcase
+set showmode
+set number
+" set relativenumber
+set scrolloff=3
+set history=100000
+
+inoremap jk <Esc>
+vnoremap jk <Esc>
+nnoremap ,ww :wq<CR>
+nnoremap ,w :w<CR>
+nnoremap ,qq :q!<CR>
+
+nnoremap <CR> normal G
+nnoremap <backspace> :q!<CR>
+
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Delete>
+
+vnoremap v <Esc>
+
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+nnoremap U <C-r>
+
+" Yank to the end of line
+nnoremap Y y$
+
+" Auto indent pasted text
+nnoremap p p=`]<C-o>
+
+" Tab operation
+nnoremap ,tn gt
+nnoremap ,tp gT
+
+
+" built in search looks better
+nnoremap / :action Find<CR>
+" but preserve ideavim search
+nnoremap ,/ /
+
+nnoremap ,gc :action GotoClass<CR>
+nnoremap ,ga :action GotoAction<CR>
+
+nnoremap ,sfp :action ShowFilePath<CR>
+nnoremap ,spm :action ShowPopupMenu<CR>
