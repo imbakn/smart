@@ -1,6 +1,6 @@
 #! /bin/bash
 # mv ~/.smart ~/.smart.bak
-# git clone https://github.com/imbakn/smartcmd ~/.smart
+# git clone https://github.com/imbakn/smart ~/.smart
 # git clone https://github.com/imbakn/smart.personal ~/.smart/personal
 
 INSTALL_PATH=~/.smart
@@ -12,6 +12,7 @@ INSTALL_PATH=~/.smart
 [ -f ~/.zshrc ] && echo "[ -f $INSTALL_PATH/main.rc ] && source $INSTALL_PATH/main.rc" >> ~/.zshrc
 
 # need to backup orignal files
-# ln -s $INSTALL_PATH/configs/tmux/.tmux ~/.tmux
-# ln -s $INSTALL_PATH/configs/tmux/.tmux.conf ~/.tmux.conf
-# ln -s $INSTALL_PATH/personal/.tmuxinator ~/.tmuxinator
+# ln -s $INSTALL_PATH/dotfiles/.tmux ~/.tmux
+# ln -s $INSTALL_PATH/dotfiles/.tmux.conf ~/.tmux.conf
+# ln -s $INSTALL_PATH/dotfiles/.ideavimrc ~/.ideavimrc
+# ln -s $INSTALL_PATH/personal/dotfiles/.tmuxinator ~/.tmuxinator
