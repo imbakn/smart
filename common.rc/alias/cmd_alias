@@ -40,3 +40,9 @@ alias f='[ -z "$T" ] || eval "cd $T/frameworks/base"'
 alias jj='source ~/.smartcmd/source/android_auto_jump'
 
 alias mux='tmuxinator'
+
+alias ta="adb shell dumpsys activity activities | sed -En -e '/Running activities/,/Run #0/p'"
+alias tof='adb shell dumpsys activity | grep "mFoc"'
+alias bgra="adb wait-for-device && adb shell dmesg | perl $T/kernel/msm-3.18/scripts/bootgraph.pl"
+
+
