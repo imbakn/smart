@@ -13,7 +13,7 @@ alias upper="tr [a-z] [A-Z]"
 
 ##################### ADB ########################
 alias rmt="adb wait-for-device && adb remount"
-alias rbt="fastboot reboot || adb reboot"
+alias rbt="adb reboot || fastboot reboot"
 alias shl="adb wait-for-device && adb shell"
 alias log="adb logcat"
 alias push="adb wait-for-device && adb push"
