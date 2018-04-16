@@ -1,9 +1,13 @@
 #! /bin/bash
-# mv ~/.smart ~/.smart.bak
-# git clone https://github.com/imbakn/smart ~/.smart
-# git clone https://github.com/imbakn/smart.personal ~/.smart/personal
 
 INSTALL_PATH=~/.smart
+
+if [ ! -f $INSTALL_PATH/install.sh ] && [ ! -f $INSTALL_PATH/main.rc ] ; then
+    mv ~/.smart ~/.smart.bak
+    git clone https://github.com/imbakn/smart ~/.smart
+    git clone https://github.com/imbakn/smart.personal ~/.smart/personal
+    cd ~/.smart && git submodule init && git submodule update
+fi
 
 [ -f ~/.bashrc ] && echo 'export SMART_SHELL=bash' >> ~/.bashrc
 [ -f ~/.bashrc ] && echo "[ -f $INSTALL_PATH/main.rc ] && source $INSTALL_PATH/main.rc" >> ~/.bashrc

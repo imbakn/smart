@@ -21,6 +21,10 @@ alias pull="adb pull"
 alias ist="adb install"
 alias atop="watch adb shell top -m 20 -s cpu -n 1"
 
+alias ap="auto_push"
+alias ai="auto_install"
+alias aw="nohup android_inotify.py  >/dev/null 2>&1 &"
+
 ###################### REPO ######################
 alias rp='repoupload'
 alias rs='repo sync -j4'

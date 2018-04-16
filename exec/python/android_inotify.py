@@ -9,20 +9,25 @@ try:
     android_product = os.environ["TARGET_PRODUCT"]
     android_build_variant = os.environ["TARGET_BUILD_VARIANT"]
 except:
+    print("env is not right. make sure $T $TARGET_PRODUCT $TARGET_BUILD_VARIANT is set correctly. ")
     sys.exit(-1)
 
+
 if android_project_root == "":
+    print("env is not right. make sure $T $TARGET_PRODUCT $TARGET_BUILD_VARIANT is set correctly. ")
     sys.exit(0)
 
 if not os.path.isdir(android_project_root):
+    print("env is not right. make sure $T $TARGET_PRODUCT $TARGET_BUILD_VARIANT is set correctly. ")
     sys.exit(-2)
 
-if len(sys.argv) < 2:
-    print("must input a dir to watch.")
-    sys.exit(1)
+out_dir = android_project_root + "/out/target/product/" + android_product
+system_dir = out_dir + "/system"
 
 watch_event = pyinotify.IN_MODIFY | pyinotify.IN_DELETE | pyinotify.IN_MOVED_FROM | pyinotify.IN_MOVED_TO
-watch_path = android_project_root + "/" + sys.argv[1]
+watch_path = system_dir
+
+print("Watch path is %s" % system_dir)
 
 
 class MyEventHandler(pyinotify.ProcessEvent):
@@ -40,8 +45,9 @@ class MyEventHandler(pyinotify.ProcessEvent):
 
 
 def handle_add(path):
+    print(path)
     with open(android_project_root + "/.system.change", "a+") as f:
-        f.write(path.replace("\n", "").replace("\r", "") + "\n")
+        f.write(path.replace("\n", "").replace("\r", "").replace(out_dir + "/", "") + "\n")
 
 
 def handle_remove(path):
@@ -59,3 +65,4 @@ for (root, dirs, files) in os.walk(watch_path):
         wm.add_watch(tmp_path, watch_event)
 
 notifier.loop()
+

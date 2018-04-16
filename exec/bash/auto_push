@@ -3,19 +3,37 @@
 # $TARGET_PRODUCT
 # $TARGET_BUILD_VARIANT
 
+if [ -z $T ] || [ -z $TARGET_PRODUCT ] || [ -z $TARGET_BUILD_VARIANT ]; then
+    echo "env is not rigth."
+    exit
+fi
+
+if [ ! -f $T/.system.change ] ; then
+    echo "nothing to be push."
+    exit
+fi
+
+LOG_FILE=$T/.system.change
+
+echo "the folling will be installd."
+cat $LOG_FILE
+
+OUT_DIR=$T/out/target/product/$TARGET_PRODUCT
+SYSTEM_DIR=$OUT_DIR/system
+
 push_files()
 {
     local FILE_PATH=$1
-    [ -f $FILE_PATH ] && adb remount && adb push $T/$FILE_PATH /"$FILE_PATH"
+    [ -f $OUT_DIR/$FILE_PATH ] && adb remount && adb push $OUT_DIR/$FILE_PATH /"$FILE_PATH"
 }
 
 install_files()
 {
     local FILE_PATH=$1
-    [ -f $FILE_PATH ] &&  adb install $T/$FILE_PATH
+    [ -f $OUT_DIR/$FILE_PATH ] &&  adb install $OUT_DIR/$FILE_PATH
 }
 
-for file in $(cat $T/.system.change)
+for file in $(cat $LOG_FILE)
 do
     if [ x$(basename $0) = x"auto_install" ] && [[ $(basename $file) == *.apk ]]; then
         install_files $file
@@ -23,3 +41,7 @@ do
         push_files $file
     fi
 done
+
+rm $LOG_FILE
+
+
