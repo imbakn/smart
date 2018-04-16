@@ -14,12 +14,30 @@ if [ ! -f $T/.system.change ] ; then
 fi
 
 LOG_FILE=$T/.system.change
-
-echo "the folling will be installd."
-cat $LOG_FILE
-
 OUT_DIR=$T/out/target/product/$TARGET_PRODUCT
 SYSTEM_DIR=$OUT_DIR/system
+
+alert_user_to_confirm()
+{
+    read -p "The above files will be installed. [Y/n] " -n 1 choice
+
+    if [ x"$choice" = "xn" ] ; then
+        echo ""
+        echo " exit..."
+        exit
+    fi
+    echo ""
+}
+
+
+show_install_files()
+{
+    for file in $(cat $LOG_FILE)
+    do
+        [ -f $OUT_DIR/$file ] && echo "$file"
+    done
+    echo ""
+}
 
 push_files()
 {
@@ -30,8 +48,14 @@ push_files()
 install_files()
 {
     local FILE_PATH=$1
-    [ -f $OUT_DIR/$FILE_PATH ] &&  adb install $OUT_DIR/$FILE_PATH
+    [ -f $OUT_DIR/$FILE_PATH ] && echo "begin install $FILE_PATH" && adb install -r $OUT_DIR/$FILE_PATH
 }
+
+show_install_files
+
+if [ x"$1" != "xq" ] ; then
+    alert_user_to_confirm
+fi
 
 for file in $(cat $LOG_FILE)
 do

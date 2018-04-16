@@ -32,4 +32,11 @@ alias rs='repo sync -j4'
 #################################################
 alias t='[ -z "$T" ] || eval "cd $T"'
 alias jj='source $SMARTDIR/resource/android_auto_jump'
+
+alias t='[ -z "$T" ] || eval "cd $T"'
+alias o='[ -z "$T" ] || eval "cd $T/out/target/product/$TARGET_PRODUCT"'
+alias k='[ -z "$T" ] || eval "cd $T/kernel/msm-3.18"'
+alias f='[ -z "$T" ] || eval "cd $T/frameworks/base"'
+alias jj='source ~/.smartcmd/source/android_auto_jump'
+
 alias mux='tmuxinator'

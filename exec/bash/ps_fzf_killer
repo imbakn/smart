@@ -9,8 +9,8 @@ killprocess()
     local ANDROID=$3
     local SUDO=$4
 
-    echo PID:$PID
-    echo PNAME:$PNAME
+    # echo PID:$PID
+    # echo PNAME:$PNAME
 
     #     kill -9 $PID && echo "$NAME is killed..."
     #     sudo kill -9 $PID && echo "$NAME is killed..."
@@ -27,7 +27,7 @@ killprocess()
         KILL_CMD=$SUDO_CMD$KILL_CMD
     fi
 
-    `$KILL_CMD` && `echo "$PNAME is killed..."`
+    `$KILL_CMD` && echo "$PNAME is killed..."
 }
 
 case $command in

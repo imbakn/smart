@@ -9,29 +9,26 @@ try:
     android_product = os.environ["TARGET_PRODUCT"]
     android_build_variant = os.environ["TARGET_BUILD_VARIANT"]
 except:
-    print("env is not right. make sure $T $TARGET_PRODUCT $TARGET_BUILD_VARIANT is set correctly. ")
     sys.exit(-1)
 
 
 if android_project_root == "":
-    print("env is not right. make sure $T $TARGET_PRODUCT $TARGET_BUILD_VARIANT is set correctly. ")
     sys.exit(0)
 
 if not os.path.isdir(android_project_root):
-    print("env is not right. make sure $T $TARGET_PRODUCT $TARGET_BUILD_VARIANT is set correctly. ")
     sys.exit(-2)
 
 out_dir = android_project_root + "/out/target/product/" + android_product
 system_dir = out_dir + "/system"
 
-watch_event = pyinotify.IN_MODIFY | pyinotify.IN_DELETE | pyinotify.IN_MOVED_FROM | pyinotify.IN_MOVED_TO
+watch_event = pyinotify.IN_CLOSE_WRITE | pyinotify.IN_DELETE | pyinotify.IN_MOVED_FROM | pyinotify.IN_MOVED_TO
 watch_path = system_dir
 
 print("Watch path is %s" % system_dir)
 
 
 class MyEventHandler(pyinotify.ProcessEvent):
-    def process_IN_MODIFY(self, event):
+    def process_IN_CLOSE_WRITE(self, event):
         handle_add(event.pathname)
 
     def process_IN_MOVED_TO(self, event):
