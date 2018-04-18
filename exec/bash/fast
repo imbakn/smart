@@ -1,0 +1,36 @@
+#! /bin/bash
+
+ARG=$1
+
+if [[ $ARG == *r* ]] ; then
+   R=true
+   echo recovery
+fi
+
+if [[ $ARG == *b* ]] ; then
+   B=true
+   echo boot 
+fi
+
+if [[ $ARG == *s* ]] ; then
+   S=true
+   echo system
+fi
+O=$T/out/target/product/$TARGET_PRODUCT
+
+adb reboot bootloader
+
+if [ x"$B" = "xtrue" ]; then
+   fastboot flash boot $O/boot.img
+fi
+
+if [ x"$R" = "xtrue" ]; then
+   fastboot flash recovery $O/recovery.img
+fi
+
+if [ x"$S" = "xtrue" ]; then
+   fastboot flash system $O/system.img
+fi
+
+fastboot reboot
+
