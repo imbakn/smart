@@ -4,3 +4,9 @@
 [submodule "modules/fzf"]
 	path = modules/fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "modules/fasd"]
+	path = modules/fasd
+	url = https://github.com/clvv/fasd
+[submodule "modules/tmuxinator"]
+	path = modules/tmuxinator
+	url = https://github.com/tmuxinator/tmuxinator
