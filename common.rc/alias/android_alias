@@ -1,0 +1,34 @@
+##################### ADB #############################
+alias rmt="adb wait-for-device && adb remount"
+alias rbt="adb reboot || fastboot reboot"
+alias rbtb="adb reboot bootloader"
+alias rbtr="adb reboot recovery"
+alias shl="adb wait-for-device && adb remount && adb shell"
+alias log="adb logcat"
+alias push="adb wait-for-device && adb remount &&  adb push"
+alias pull="adb pull"
+alias install="adb install -r"
+alias atop="watch adb shell top -m 20 -s cpu -n 1"
+
+
+##################### AUTO PUSH #######################
+alias aw="nohup android_inotify.py  >/dev/null 2>&1 &"
+alias ae='[ -f "$T/.system.change" ] && vim "$T/.system.change"'
+alias ap="adb wait-for-device && auto_push"
+alias ai="adb wait-for-device && auto_install"
+
+###################### REPO ##########################
+alias rp='repoupload'
+alias rs='repo sync -j4'
+
+###################### CHANGE DIR ####################
+alias t='[ -z "$T" ] || eval "cd $T"'
+alias o='[ -z "$T" ] || eval "cd $T/out/target/product/$TARGET_PRODUCT"'
+alias k='[ -z "$T" ] || eval "cd $T/kernel/msm-3.18"'
+alias j='android_auto_jump'
+alias mx='tmuxinator'
+
+######################## TOOL ######################
+alias ta="adb shell dumpsys activity activities | sed -En -e '/Running activities/,/Run #0/p'"
+alias tof='adb shell dumpsys activity | grep "mFoc"'
+alias bgra="adb wait-for-device && adb shell dmesg | perl $T/kernel/msm-3.18/scripts/bootgraph.pl"

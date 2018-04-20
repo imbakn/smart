@@ -1,2 +1,2 @@
 # bind -x '"\em": "mm"'
-bind -x '"\ej": "jj"'
+# bind -x '"\ej": "android_auto_jump"'
