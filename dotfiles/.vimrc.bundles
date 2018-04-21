@@ -1,0 +1,76 @@
+" Environment {
+
+    set nocompatible        " Must be first line
+    set background=dark     " Assume a dark background
+    filetype off
+    set rtp+=~/.vim/bundle/vundle
+    call vundle#rc()
+
+    function! UnBundle(arg, ...)
+      let bundle = vundle#config#init_bundle(a:arg, a:000)
+      call filter(g:vundle#bundles, 'v:val["name_spec"] != "' . a:arg . '"')
+    endfunction
+
+    com! -nargs=+         UnBundle
+    \ call UnBundle(<args>)
+" }
+
+" Bundles {
+
+    " Deps {
+        Bundle 'gmarik/vundle'
+        Bundle 'MarcWeber/vim-addon-mw-utils'
+        Bundle 'tomtom/tlib_vim'
+        Bundle 'mileszs/ack.vim'
+        let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+    " }
+
+    let g:spf13_bundle_groups=['general', 'writing', 'programming', 'python', 'misc',]
+
+    if !exists("g:override_spf13_bundles")
+    " General {
+        if count(g:spf13_bundle_groups, 'general')
+            Bundle 'scrooloose/nerdtree'
+            Bundle 'altercation/vim-colors-solarized'
+            Bundle 'spf13/vim-colors'
+            Bundle 'tpope/vim-surround'
+            Bundle 'tpope/vim-repeat'
+            Bundle 'rhysd/conflict-marker.vim'
+            Bundle 'jiangmiao/auto-pairs'
+            Bundle 'ctrlpvim/ctrlp.vim'
+            Bundle 'tacahiroy/ctrlp-funky'
+            Bundle 'terryma/vim-multiple-cursors'
+            Bundle 'vim-scripts/sessionman.vim'
+            Bundle 'matchit.zip'
+            Bundle 'vim-airline/vim-airline'
+            Bundle 'vim-airline/vim-airline-themes'
+            Bundle 'powerline/fonts'
+            Bundle 'bling/vim-bufferline'
+            Bundle 'easymotion/vim-easymotion'
+            Bundle 'jistr/vim-nerdtree-tabs'
+            Bundle 'flazz/vim-colorschemes'
+            Bundle 'nathanaelkane/vim-indent-guides'
+            Bundle 'mhinz/vim-signify'
+            Bundle 'tpope/vim-abolish.git'
+            Bundle 'osyo-manga/vim-over'
+            Bundle 'gcmt/wildfire.vim'
+        endif
+    " }
+
+
+    " General Programming {
+        if count(g:spf13_bundle_groups, 'programming')
+            " Pick one of the checksyntax, jslint, or syntastic
+            Bundle 'scrooloose/syntastic'
+            Bundle 'mattn/webapi-vim'
+            Bundle 'mattn/gist-vim'
+            Bundle 'scrooloose/nerdcommenter'
+            Bundle 'tpope/vim-commentary'
+            Bundle 'godlygeek/tabular'
+        endif
+    " }
+
+    endif
+
+" }
+

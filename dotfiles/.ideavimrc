@@ -1,3 +1,4 @@
+
 set hlsearch
 set incsearch
 set number
@@ -11,8 +12,7 @@ set shiftwidth=4
 " set history=100000
 
 inoremap jk <Esc>
-nnoremap ,ww :wq<CR>
-nnoremap ,w :w<CR>
+nnoremap ,wq :wq<CR>
 nnoremap ,qq :q!<CR>
 
 inoremap <C-h> <Left>
