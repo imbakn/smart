@@ -27,3 +27,5 @@
 9，如何管理自己的各种配置
 
 10，平时注意积累，丰富自己的工具库
+
+# curl https://raw.githubusercontent.com/imbakn/smart/master/install.sh -L -o - | sh
