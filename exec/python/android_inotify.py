@@ -18,6 +18,48 @@ if android_project_root == "":
 if not os.path.isdir(android_project_root):
     sys.exit(-2)
 
+
+file_name = "%s/%s_%s.pid" % (android_project_root, android_product, android_build_variant)
+print(file_name)
+
+def writePid():
+    pid = str(os.getpid())
+    f = open(file_name, 'w')
+    f.write(pid)
+    f.close()
+
+
+def getPid():
+    if not os.path.exists(file_name):
+        return "-1"
+    with open(file_name, 'r') as pid:
+        pid_str = pid.read()
+        print("pid is %s" % pid_str)
+        return str(pid_str)
+
+
+def is_run(pid):
+    strtmp = os.popen("ps -p %s" % pid)
+    cmdback = strtmp.read()
+    print(cmdback)
+    p = str(cmdback).find('python')
+    print(p)
+    if not p == -1:
+        print('android_inotify is run')
+        return True
+    else:
+        print('android_inotify is not run')
+        return False
+
+
+if is_run(getPid()):
+    print("already running. exit now.")
+    sys.exit()
+else:
+    print("start inotify")
+    writePid()
+
+
 out_dir = android_project_root + "/out/target/product/" + android_product
 system_dir = out_dir + "/system"
 
@@ -62,4 +104,3 @@ for (root, dirs, files) in os.walk(watch_path):
         wm.add_watch(tmp_path, watch_event)
 
 notifier.loop()
-

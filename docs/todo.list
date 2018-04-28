@@ -1,31 +1,13 @@
-1，tmuxinator 工具的使用，多窗口，自动初始化工作区
-   tmuxinator 配置
-   tmux配置
-   vim配置
+1, dotfile link
+2, install dir
+3, vim fzf
+4, fastboot wipe
+5, install script
+6, add fzf exe
+7, aw 命令 同一个工作区最多启动一个
 
-2，alias 和 keybinds 设置，各种快捷键的使用
 
-3，fzf 工具的使用
-   目录跳转
-   历史记录
-   本地 kill 进程和android kill进程
-   。。。
-4，跳转目录
-   一键跳转android根目录和out的输出目录
-   向上N级目录
-   fzf快速跳转到其他项目
 
-5， ag 命令的使用
-   比grep 更快的搜索
-
-6，mm之后生成文件自动push或者install
-
-7，fastboot 刷机简单封装
-
-8，repo upload 简单封装
-
-9，如何管理自己的各种配置
-
-10，平时注意积累，丰富自己的工具库
-
-# curl https://raw.githubusercontent.com/imbakn/smart/master/install.sh -L -o - | sh
+V2
+android 模块之间关系分析
+android 代码关系图
