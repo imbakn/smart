@@ -7,7 +7,8 @@ alias shl="adb wait-for-device && adb remount && adb shell"
 alias log="adb logcat"
 alias push="adb wait-for-device && adb remount &&  adb push"
 alias pull="adb pull"
-alias install="adb install -r"
+alias inst="adb install -r"
+alias insts="install_multi_apks"
 alias atop="watch adb shell top -m 20 -s cpu -n 1"
 
 
@@ -19,7 +20,7 @@ alias ai="adb wait-for-device && auto_install"
 
 ###################### REPO ##########################
 alias rp='repoupload'
-alias rs='repo sync -j4'
+alias rs='repo sync -j4 2>/tmp/repo_sync.log ; echo "=============NOTE THIS==============" ;cat /tmp/repo_sync.log'
 
 ###################### CHANGE DIR ####################
 alias t='[ -z "$T" ] || eval "cd $T"'

@@ -9,5 +9,5 @@ filesuf()
 
 for apk in $*
 do
-   [ -f $apk ] && [ $(filesuf $apk) = "apk" ] && adb install $apk
+   [ -f $apk ] && [ $(filesuf $apk) = "apk" ] && adb install -r  $apk
 done

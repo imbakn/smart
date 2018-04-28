@@ -9,3 +9,13 @@ alias b='bcompare'
 alias hexd="hexdump -v -e '1/1 \"%02x \"' "
 alias lower="tr [A-Z] [a-z]"
 alias upper="tr [a-z] [A-Z]"
+
+
+##################################################
+alias tree1='tree -L 1 '
+alias tree2='tree -L 2 '
+alias tree3='tree -L 3 '
+alias tree4='tree -L 4 '
+alias tree5='tree -L 5 '
+
+##################################################
