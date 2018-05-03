@@ -18,7 +18,7 @@ then
 #create a link for jar file
 	PARAM1=$1
 	SUFFIX=${PARAM1##*.}
-	JARNAME=`basename -s .jar $PARAM1`
+	JARNAME=`basename $PARAM1 .jar`
 	WJARPATH=$CDIR"/"$JARNAME".jar"
 	# echo ============
 	# echo $#
