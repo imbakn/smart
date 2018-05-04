@@ -1,0 +1,12 @@
+#! /bin/bash
+if [ $# -lt 2 ] ; then
+    echo "please enter name and password."
+    exit
+fi
+echo "login wifi."
+name=$1
+pass=$2
+adb shell input text $name
+adb shell input keyevent 61
+adb shell input text $pass
+
