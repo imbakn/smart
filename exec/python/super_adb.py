@@ -74,7 +74,7 @@ def interact():
     except ImportError:
         raise Exception('Please install the pexpect module first!! \nYou can do it by "pip install pexpect"')
     shell = pexpect.spawn('adb -s %s shell' % call.device)
-    shell.expect('$')
+    shell.expect(['$','#'])
     shell.sendline('export PATH=/data/local/tmp/:$PATH')
     shell.sendline('alias ll="ls -l"')
     shell.sendline('clear')
