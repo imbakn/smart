@@ -1,1 +1,1 @@
-bind -x '"\C-p": "spsk"'
+bind -x '"\C-p": "psk"'
