@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# 一行命令安装
+# curl https://raw.githubusercontent.com/imbakn/smart/master/install.sh -L -o - | sh
+
 INSTALL_PATH=~/.smart
 
 do_backup() {
