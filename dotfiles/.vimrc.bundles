@@ -30,6 +30,7 @@
     if !exists("g:override_spf13_bundles")
     " General {
         if count(g:spf13_bundle_groups, 'general')
+            Bundle 'embear/vim-foldsearch'
             Bundle 'scrooloose/nerdtree'
             Bundle 'altercation/vim-colors-solarized'
             Bundle 'spf13/vim-colors'

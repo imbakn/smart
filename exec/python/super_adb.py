@@ -76,8 +76,9 @@ def interact():
     shell = pexpect.spawn('adb -s %s shell' % call.device)
     shell.expect(['$','#'])
     shell.sendline('export PATH=/data/local/tmp/:$PATH')
+    shell.sendline('rm /data/local/tmp/reboot')
     shell.sendline('alias ll="ls -l"')
-    shell.sendline('clear')
+    shell.sendline('reset')
     shell.interact()
 
 def main():

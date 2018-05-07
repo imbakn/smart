@@ -124,6 +124,8 @@ source ~/.vimrc.bundles
 
     nnoremap <leader>wq :wq<cr>
     nnoremap <leader>qq :q!<cr>
+    nnoremap <leader>fw :Fw<cr>
+    nnoremap <leader>fw :normal zE<cr>
 
     nnoremap <leader>o o<esc>
 
