@@ -19,6 +19,8 @@ then
     sudo cp ~/.smart/resource/apt_source_1204_163.list /etc/apt/sources.list
 fi
 
+sudo apt-get update
+
 sudo apt-get install python3
 sudo apt-get install ruby
 sudo apt-get install stow
