@@ -27,7 +27,6 @@ source ~/.vimrc.bundles
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
-    set spell                           " Spell checking on
     set hidden                          " Allow buffer switching without saving
     set iskeyword-=.                    " '.' is an end of word designator
     set iskeyword-=#                    " '#' is an end of word designator
@@ -76,9 +75,7 @@ source ~/.vimrc.bundles
         set laststatus=2
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
-        if !exists('g:override_spf13_bundles')
-            set statusline+=%{fugitive#statusline()} " Git Hotness
-        endif
+        set statusline+=%{fugitive#statusline()} " Git Hotness
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
@@ -116,9 +113,6 @@ source ~/.vimrc.bundles
     set splitright                  " Puts new vsplit windows to the right of the current
     set splitbelow                  " Puts new split windows to the bottom of the current
     set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
-    autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
-    autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
-    autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 " }
 
 " Key (re)Mappings {
@@ -130,6 +124,8 @@ source ~/.vimrc.bundles
 
     nnoremap <leader>wq :wq<cr>
     nnoremap <leader>qq :q!<cr>
+
+    nnoremap <leader>o o<esc>
 
     inoremap <C-h> <Left>
     inoremap <C-j> <Down>
@@ -190,6 +186,7 @@ source ~/.vimrc.bundles
     cmap Tabe tabe
 
     nnoremap Y y$
+    nnoremap ,p  "+p
 
     nmap <leader>f0 :set foldlevel=0<CR>
     nmap <leader>f1 :set foldlevel=1<CR>
@@ -204,10 +201,10 @@ source ~/.vimrc.bundles
 
     nmap <silent> <leader>/ :nohlsearch<CR>
 
-    map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+    " map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
-    cmap cwd lcd %:p:h
-    cmap cd. lcd %:p:h
+    " cmap cwd lcd %:p:h
+    " cmap cd. lcd %:p:h
 
     vnoremap < <gv
     vnoremap > >gv
@@ -287,35 +284,6 @@ source ~/.vimrc.bundles
         endif
     " }
 
-    " ctrlp {
-        if isdirectory(expand("~/.vim/bundle/ctrlp.vim/"))
-            let g:ctrlp_working_path_mode = 'ra'
-            nnoremap <silent> <D-t> :CtrlP<CR>
-            nnoremap <silent> <D-r> :CtrlPMRU<CR>
-            let g:ctrlp_custom_ignore = {
-                \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-                \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
-
-
-            let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
-            let g:ctrlp_user_command = {
-                \ 'types': {
-                    \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-                    \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-                \ },
-                \ 'fallback': s:ctrlp_fallback
-            \ }
-
-            if isdirectory(expand("~/.vim/bundle/ctrlp-funky/"))
-                " CtrlP extensions
-                let g:ctrlp_extensions = ['funky']
-
-                "funky
-                nnoremap <Leader>fu :CtrlPFunky<Cr>
-            endif
-        endif
-    "}
-
     " indent_guides {
         if isdirectory(expand("~/.vim/bundle/vim-indent-guides/"))
             let g:indent_guides_start_level = 2
@@ -330,7 +298,7 @@ source ~/.vimrc.bundles
                 \ "html,xml" : ["at"],
                 \ }
     " }
-
+    let g:airline_powerline_fonts=1
     " vim-airline {
         " Set configuration options for the statusline plugin vim-airline.
         " Use the powerline theme and optionally enable powerline symbols.
@@ -344,7 +312,7 @@ source ~/.vimrc.bundles
         " Default in terminal vim is 'dark'
         if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
             if !exists('g:airline_theme')
-                let g:airline_theme = 'solarized'
+                let g:airline_theme = 'jellybeans'
             endif
             if !exists('g:airline_powerline_fonts')
                 " Use the default set of separators with a few customizations
@@ -405,7 +373,7 @@ source ~/.vimrc.bundles
     function! s:ExpandFilenameAndExecute(command, file)
         execute a:command . " " . expand(a:file, ":p")
     endfunction
-    
+
     function! s:EditSpf13Config()
         call <SID>ExpandFilenameAndExecute("tabedit", "~/.vimrc")
         execute bufwinnr(".vimrc") . "wincmd w"
@@ -414,8 +382,8 @@ source ~/.vimrc.bundles
     let s:spf13_edit_config_mapping = '<leader>ev'
     let s:spf13_apply_config_mapping = '<leader>sv'
 
-    
-    execute "noremap " . s:spf13_edit_config_mapping " :call <SID>EditSpf13Config()<CR>"
-    execute "noremap " . s:spf13_apply_config_mapping . " :source ~/.vimrc<CR>"
-" }
 
+    " execute "noremap " . s:spf13_edit_config_mapping " :call <SID>EditSpf13Config()<CR>"
+    " execute "noremap " . s:spf13_apply_config_mapping . " :source ~/.vimrc<CR>"
+    noremap <leader>ev :source ~/.vimrc ; echom "reload .vimrc"
+" }
