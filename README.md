@@ -223,7 +223,12 @@ vi ll 等都不支持
 带彩色显示
 user和userdebug都适用
 
-## 14. **smart的结构以及扩展性**
+## 14. **机器上连接wifi输入用户名密码太麻烦**
+
+可以使用 awifi username password
+使用的时候 焦点要定位到wifi登录页面的用户名输入框
+
+## 15. **smart的结构以及扩展性**
 ```
 ├── common.rc
 │   ├── alias       #存放alias
