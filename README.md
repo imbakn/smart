@@ -18,26 +18,23 @@ smart 是一系列脚本和配置文件的集合,可以方便的进行android系
 ------
 
 ## 1. **快速跳转到工作空间并完成初始化**
-编辑 `/home/imbak/.smart/personal/user.rc/myfunc.bash` 文件, 加入下面的内容
+编辑 `~/.smart/personal/user.rc/myfunc.bash` 文件, 加入下面的内容
 ```
 msm8917()
 {
-    cd  /home/ubuntu/kuspace/android/qcom/XBD_QCOM_MSM8917
-    source ./build/envsetup.sh
-    lunch zqp1168_p2lite-userdebug
-    source $SMARTDIR/resource/init_android_env_var
+    init_android_project /home/ubuntu/kuspace/android/qcom/XBD_QCOM_MSM8917 zqp1168_p2lite-userdebug
 }
 ```
 这样在下次进入terminal之后就可以直接输入 `msm8917` 命令来完成工作空间的初始化.
 下面的很多操作都依赖与这条命令
 
 ## 2. **多窗口分屏利器 tmux**
-配置文件`/home/imbak/.smart/dotfiles/.tmux.conf`
+配置文件`~/.smart/dotfiles/.tmux.conf`
 需要大家去熟悉和使用,请参考我的配置不做过多解释
 
 ## 3. **tmxu 的管理器 tmuxinator**
-tmuxinator的配置文件示例在`/home/imbak/.smart/personal/dotfiles/.tmuxinator`文件夹下面
-例如 `/home/imbak/.smart/personal/dotfiles/.tmuxinator/msm8917.yml`
+tmuxinator的配置文件示例在`~/.smart/personal/dotfiles/.tmuxinator`文件夹下面
+例如 `~/.smart/personal/dotfiles/.tmuxinator/msm8917.yml`
 ```
 name: msm8917
 root: ~/kuspace/android/qcom/msm8917
@@ -159,7 +156,7 @@ android 目录都比较深,当显示全路径的时候会比较长,挤压命令�
 | ap       | 自动push所有文件  |
 | ai       | 自动安装apk文件,push其他文件  |
 
- - aw 的监视目录依赖与
+ - aw 的监视目录依赖于
 
     cd  /home/ubuntu/kuspace/android/qcom/XBD_QCOM_MSM8917
     source ./build/envsetup.sh
