@@ -9,6 +9,7 @@ alias push="adb wait-for-device && adb remount &&  adb push"
 alias pull="adb pull"
 alias inst="adb install -r"
 alias insts="install_multi_apks"
+alias uninst="uninstall_apk.bash"
 alias atop="watch adb shell top -m 20 -s cpu -n 1"
 
 
