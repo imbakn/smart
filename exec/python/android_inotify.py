@@ -11,6 +11,14 @@ try:
 except:
     sys.exit(-1)
 
+arglen = len(sys.argv)
+wpath = "system"
+
+if arglen == 2 :
+    if sys.argv[1] != "data" and sys.argv[1] != "system":
+        sys.exit(-3)
+    else:
+        wpath = sys.argv[1]
 
 if android_project_root == "":
     sys.exit(0)
@@ -19,7 +27,7 @@ if not os.path.isdir(android_project_root):
     sys.exit(-2)
 
 
-file_name = "%s/%s_%s.pid" % (android_project_root, android_product, android_build_variant)
+file_name = "%s/%s_%s_%s.pid" % (android_project_root, android_product, android_build_variant, wpath)
 print(file_name)
 
 def writePid():
@@ -61,7 +69,7 @@ else:
 
 
 out_dir = android_project_root + "/out/target/product/" + android_product
-system_dir = out_dir + "/system"
+system_dir = out_dir + "/" + wpath
 
 watch_event = pyinotify.IN_CLOSE_WRITE | pyinotify.IN_DELETE | pyinotify.IN_MOVED_FROM | pyinotify.IN_MOVED_TO
 watch_path = system_dir
