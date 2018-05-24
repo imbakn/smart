@@ -11,7 +11,7 @@ alias inst="adb install -r"
 alias insts="install_multi_apks"
 alias uninst="uninstall_apk.bash"
 alias atop="watch adb shell top -m 20 -s cpu -n 1"
-
+alias lg="log_search.bash"
 
 ##################### AUTO PUSH #######################
 alias aw="nohup android_inotify.py  >/dev/null 2>&1 &"

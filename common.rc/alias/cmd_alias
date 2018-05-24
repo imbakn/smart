@@ -19,3 +19,5 @@ alias tree4='tree -L 4 '
 alias tree5='tree -L 5 '
 
 ##################################################
+
+alias tp="glances"
