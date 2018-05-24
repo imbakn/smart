@@ -7,7 +7,7 @@ fi
 
 if [ -f $1 ]
 then
-    cat $1 | nl | peco
+    cat $1 | nl -b a | peco
 else
     echo "$1 is not a file.."
 fi
