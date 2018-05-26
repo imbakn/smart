@@ -23,6 +23,8 @@ alias ai="adb wait-for-device && auto_install"
 ###################### REPO ##########################
 alias rp='repoupload'
 alias rs='repo sync -j4 2>/tmp/repo_sync.log ; echo "=============NOTE THIS==============" ;cat /tmp/repo_sync.log'
+alias gpush="git status | fpp -c git_auto_push.bash"
+alias rpush="git status | fpp -c repo_auto_upload.bash"
 
 ###################### CHANGE DIR ####################
 alias t='[ -z "$T" ] || eval "cd $T"'
