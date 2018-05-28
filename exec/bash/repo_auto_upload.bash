@@ -4,4 +4,4 @@ git add "$@"
 
 git commit
 
-repo upload
+repoupload
