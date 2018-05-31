@@ -56,3 +56,5 @@ addpathdir()
 sourcedir $SMART_BASHRC
 [ -d $SMARTDIR/personal/user.rc ] && sourcedir $SMARTDIR/personal/user.rc
 addpathdir $SMART_EXEC
+addpath ~/.android.projects
+
