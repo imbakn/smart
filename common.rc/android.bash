@@ -66,7 +66,10 @@ create_android_project()
     fi
 
     echo "init_android_project $PRO_PATH $PRODUCT_VARIANT" >> ~/.android.projects/$PRO_NAME
-    alias $PRO_NAME="source ~/.android.projects/$PRO_NAME"   
+    
+    export T=$PRO_PATH
+    genfav.bash
+    
 }
 
 start_android_project()
