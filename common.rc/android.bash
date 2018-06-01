@@ -77,8 +77,12 @@ create_android_project()
 start_android_project()
 {
     local PRO_NAME=$1
-    source ~/.android.projects/$PRO_NAME
-    aw
+    if [ $# != 1 ]; then
+        echo "usage: start_android_project project_name"
+    else
+        source ~/.android.projects/$PRO_NAME
+        aw
+    fi
 }
 
 _start_android_project() {
