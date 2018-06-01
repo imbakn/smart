@@ -78,6 +78,7 @@ start_android_project()
 {
     local PRO_NAME=$1
     source ~/.android.projects/$PRO_NAME
+    aw
 }
 
 _start_android_project() {
