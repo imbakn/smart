@@ -68,7 +68,9 @@ create_android_project()
     echo "init_android_project $PRO_PATH $PRODUCT_VARIANT" >> ~/.android.projects/$PRO_NAME
     
     export T=$PRO_PATH
-    genfav.bash
+    if [ ! -f .myfavories ]; then
+        genfav.bash
+    fi
     
 }
 
