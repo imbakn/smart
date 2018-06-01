@@ -1,12 +1,12 @@
 [submodule "modules/spf13-vim"]
 	path = modules/spf13-vim
-	url = https://github.com/spf13/spf13-vim
+	url = git@github.com:spf13/spf13-vim.git
 [submodule "modules/fzf"]
 	path = modules/fzf
-	url = https://github.com/junegunn/fzf.git
+	url = git@github.com:junegunn/fzf.git
 [submodule "modules/fasd"]
 	path = modules/fasd
-	url = https://github.com/clvv/fasd
+	url = git@github.com:clvv/fasd.git
 [submodule "modules/tmuxinator"]
 	path = modules/tmuxinator
-	url = https://github.com/tmuxinator/tmuxinator
+	url = git@github.com:tmuxinator/tmuxinator.git
