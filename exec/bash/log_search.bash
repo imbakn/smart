@@ -9,7 +9,9 @@ if [ -f $1 ]
 then
     LINE=$(cat $1 | nl -b a | peco)
     NUMBER=$(echo $LINE | awk '{print $1}')
-    vim $1 +$NUMBER
+    if [ x"$NUMBER" != "x" ]; then
+        vim $1 +$NUMBER
+    fi
 else
     echo "$1 is not a file.."
 fi
