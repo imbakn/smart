@@ -23,7 +23,6 @@ cheat_help()
         if [ "$1" -gt 0 ] 2>/dev/null ;then
             if [ x"$LAST_CHEAT" != "x" ];then
                 cheat show $LAST_CHEAT -c $1
-                LAST_CHEAT=""
             fi
         else
             cheat show $1
