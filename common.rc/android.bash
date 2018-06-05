@@ -71,17 +71,32 @@ create_android_project()
     if [ ! -f .myfavories ]; then
         genfav.bash
     fi
-    
+    echo "Project "$PRO_NAME" is created successed."
 }
 
 start_android_project()
 {
     local PRO_NAME=$1
     if [ $# != 1 ]; then
-        echo "usage: start_android_project project_name"
+        if [ x"$ANDROID_PROJECT" != "x" ]; then
+            echo "Current Android Project is "$ANDROID_PROJECT
+        else
+            echo "usage: start_android_project project_name"
+            echo "Project Name Could be: "$(ls ~/.android.projects)
+        fi
     else
-        source ~/.android.projects/$PRO_NAME
-        aw
+        if [ $1 = "-l" ]; then
+            echo $(ls ~/.android.projects)
+        else
+            if [ -f ~/.android.projects/$PRO_NAME ];then
+                source ~/.android.projects/$PRO_NAME
+                aw
+                ANDROID_PROJECT=$PRO_NAME
+            else
+                echo "The project Name is not right."
+                echo "Project Name Could be: "$(ls ~/.android.projects)
+            fi
+        fi
     fi
 }
 

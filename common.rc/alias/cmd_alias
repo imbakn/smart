@@ -24,3 +24,5 @@ alias tp="glances"
 if type ccat >/dev/null 2>&1; then 
     alias cat=ccat
 fi
+
+alias smart="cd ~/.smart"
