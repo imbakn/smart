@@ -26,3 +26,4 @@ if type ccat >/dev/null 2>&1; then
 fi
 
 alias smart="cd ~/.smart"
+alias resmart="source ~/.bashrc"
