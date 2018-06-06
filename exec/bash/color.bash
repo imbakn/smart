@@ -16,34 +16,96 @@ colorName()
     esac
 }
 
+printColorHelp()
+{
+    echo "┌─────────┬─────────────────────────────────────────────────────────────────────────┐"
+    echo -ne "\x1b[1m"
+    echo "│ 属性    │ 加粗 1   正常 2   斜体 3   下划 4   闪烁 5   正常 6   反色 7   删除 9   │"
+    echo -ne "\x1b[0m"
+    echo "├─────────┼─────────────────────────────────────────────────────────────────────────┤"
+    for i in {0..9}
+    do
+        echo -ne "│ $(colorName $i) 3$i │ "
+        echo -ne "\x1b[1;3$i""m颜色测试\x1b[0m "
+        echo -ne "\x1b[2;3$i""m颜色测试\x1b[0m "
+        echo -ne "\x1b[3;3$i""m颜色测试\x1b[0m "
+        echo -ne "\x1b[4;3$i""m颜色测试\x1b[0m "
+        echo -ne "\x1b[5;3$i""m颜色测试\x1b[0m "
+        echo -ne "\x1b[6;3$i""m颜色测试\x1b[0m "
+        echo -ne "\x1b[7;3$i""m颜色测试\x1b[0m "
+        echo -ne "\x1b[9;3$i""m颜色测试\x1b[0m │"
+        echo ""
+    done
+    echo "└─────────┴─────────────────────────────────────────────────────────────────────────┘"
+    echo "eg:"
+    echo 'echo -e "\x1b[1;33m颜色测试\x1b[0m"'
+    echo -e "\x1b[1;33m颜色测试\x1b[0m"
+    echo
+    echo 'echo -e "\x1b[7;35m颜色测试\x1b[0m"'
+    echo -e "\x1b[7;35m颜色测试\x1b[0m"
+    echo
+    echo 'echo -e "\x1b[5;34m颜色测试\x1b[0m"'
+    echo -e "\x1b[5;34m颜色测试\x1b[0m"
+}
 
-echo "┌─────────┬─────────────────────────────────────────────────────────────────────────┐"
-echo -ne "\x1b[1m"
-echo "│ 属性    │ 加粗 1   正常 2   斜体 3   下划 4   闪烁 5   正常 6   反色 7   删除 9   │"
-echo -ne "\x1b[0m"
-echo "├─────────┼─────────────────────────────────────────────────────────────────────────┤"
-for i in {0..9}
-do
-    echo -ne "│ $(colorName $i) 3$i │ "
-    echo -ne "\x1b[1;3$i""m颜色测试\x1b[0m "
-    echo -ne "\x1b[2;3$i""m颜色测试\x1b[0m "
-    echo -ne "\x1b[3;3$i""m颜色测试\x1b[0m "
-    echo -ne "\x1b[4;3$i""m颜色测试\x1b[0m "
-    echo -ne "\x1b[5;3$i""m颜色测试\x1b[0m "
-    echo -ne "\x1b[6;3$i""m颜色测试\x1b[0m "
-    echo -ne "\x1b[7;3$i""m颜色测试\x1b[0m "
-    echo -ne "\x1b[9;3$i""m颜色测试\x1b[0m │"
-    echo ""
-done
-echo "└─────────┴─────────────────────────────────────────────────────────────────────────┘"
-echo "eg:"
-echo 'echo -e "\x1b[1;33m颜色测试\x1b[0m"'
-echo -e "\x1b[1;33m颜色测试\x1b[0m"
-echo
-echo 'echo -e "\x1b[7;35m颜色测试\x1b[0m"'
-echo -e "\x1b[7;35m颜色测试\x1b[0m"
-echo
-echo 'echo -e "\x1b[5;34m颜色测试\x1b[0m"'
-echo -e "\x1b[5;34m颜色测试\x1b[0m"
+printColorLine()
+{
+    while getopts 'b:f:m:' OPT; do
+        case $OPT in
+            b)
+                BG_COLOR="$OPTARG";;
+            f)
+                FG_COLOR="$OPTARG";;
+            m)
+                FT_MODE="$OPTARG";;
+            ?)
+                echo "Usage: `basename $0` [options] content"
+                echo "-b background color"
+                echo "-f front color"
+                echo "-m font mode"
+        esac
+    done
+    shift $(($OPTIND - 1))
+    
+    if [ x"$BG_COLOR" != "x" ];then
+        BG_COLOR=$BG_COLOR";"
+    fi
+    if [ x"$FG_COLOR" != "x" ];then
+        FG_COLOR=$FG_COLOR";"
+    fi
+    if [ x"$FT_MODE" != "x" ];then
+        FT_MODE=$FT_MODE";"
+    fi
+    
+    #echo BG_COLOR $BG_COLOR
+    #echo FG_COLOR $FG_COLOR
+    #echo FT_MODE $FT_MODE
+    
+    WHOLE_STYLE=$FT_MODE$BG_COLOR$FG_COLOR
+    WHOLE_STYLE=${WHOLE_STYLE%;}m
+    echo "The command is:"
+    echo "echo -e \"\x1b[$WHOLE_STYLE"$@"\x1b[0m\""
+    echo "The effect is:"
+    echo -ne "\x1b[$WHOLE_STYLE"
+    echo -n "$@"
+    echo -e "\x1b[0m"
+}
+
+if [ $# = 0 ];then
+    printColorHelp
+else
+    printColorLine $@
+fi
+
+
+
+
+
+
+
+
+
+
+
 
 
