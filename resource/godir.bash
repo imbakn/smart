@@ -20,5 +20,15 @@ function godir() {
     
     if [ x"$select" != "x" ];then
         cd  $select
+        LAST_GODIR_FILE=$1
+    fi
+}
+
+function gg()
+{
+    if [ x"LAST_GODIR_FILE" != "x ];then
+        if [ -f $LAST_GODIR_FILE ];then
+            vim $LAST_GODIR_FILE
+        fi
     fi
 }
