@@ -40,7 +40,7 @@ do_backup ~/.tmux
 do_backup ~/.ideavimrc
 
 # 安装spf13 vim 脚本
-spf13-vim-imbakn.sh
+$INSTALL_PATH/others/spf13-vim-imbakn.sh
 
 # 创建 dotfiles 链接
 cd ~/.smart && stow dotfiles -t $HOME
