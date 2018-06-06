@@ -33,15 +33,14 @@ cd ~/.smart && git submodule init && git submodule update
 # 替换apt 源 安装 apt 软件
 ~/.smart/apt_install.sh
 
-do_backup ~/.vimrc
-
-do_backup ~/.vimrc.bundles
-
 do_backup ~/.tmux.conf
 
 do_backup ~/.tmux
 
 do_backup ~/.ideavimrc
+
+# 安装spf13 vim 脚本
+spf13-vim-imbakn.sh
 
 # 创建 dotfiles 链接
 cd ~/.smart && stow dotfiles -t $HOME
