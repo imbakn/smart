@@ -67,9 +67,9 @@ case $command in
 esac
 
 if [ x"$ANDROID" = "xtrue" ]; then
-    TO_KILL=`adb shell ps > /tmp/ps && cat /tmp/ps | fzf`
+    TO_KILL=`adb shell ps > /tmp/ps && cat /tmp/ps | fzf -e`
 else
-    TO_KILL=`ps -ef | fzf`
+    TO_KILL=`ps -ef | fzf -e`
 fi
 
 if [ x"$KILL" != "xtrue" ]; then

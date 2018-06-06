@@ -14,7 +14,7 @@ _cheat_autocomplete()
 cheat_help()
 {
     if [ $# = 0 ]; then
-        cmd=$(cheat list | fzf)
+        cmd=$(cheat list | fzf -e)
         if [ x"$cmd" != "x" ];then
             cheat show $cmd
             LAST_CHEAT=$cmd
