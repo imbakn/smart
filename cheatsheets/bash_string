@@ -1,0 +1,26 @@
+# 从左往右，删除最短的一个以string结尾的子串
+${varible#*string}
+
+# 从左往右，删除最长的一个以string结尾的子串
+${varible##*string}      
+
+# 从右往左，删除最短的一个以string开头的子串
+${varible%string*}
+
+# 从右往左，删除最长的一个以string开头的子串
+${varible%%string*}
+
+# 例子
+export TEST=123abc456abc789
+echo ${TEST#*abc}        ===>删掉123abc剩下456abc789
+echo ${TEST##*abc}       ===>删掉123abc456abc剩下"789
+echo ${TEST%abc*}        ===>删掉abc789剩下123abc456
+echo ${TEST%%abc*}       ===>删掉abc456abc789剩下123
+
+# 截取变量varible从位置start开始长度为len的子串
+${varible:start:len}
+
+# 例子
+export TEST=123abc456abc789
+echo ${TEST:0:3}         ===>"123"
+echo ${TEST:3:3}         ===>"abc"
