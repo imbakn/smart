@@ -37,6 +37,9 @@ t
 # 跳转到android输出目录
 o
 
+# 返回最近的包含Android.mk的目录
+a
+
 # 快速回退N级目录
 cdN (N 1-9)
 
