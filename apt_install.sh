@@ -27,3 +27,4 @@ sudo apt-get install stow
 sudo apt-get install neovim
 sudo apt-get install tmux
 sudo apt-get install watch
+sudo apt-get install tig
