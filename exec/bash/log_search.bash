@@ -16,10 +16,7 @@ then
         fi
         LINE=$(echo "$CONTENT" | sed -n '2p')
         QUERY=$(echo "$CONTENT" | sed -n '1p')
-        echo LINE $LINE
-        echo QUERY $QUERY
         NUMBER=$(echo $LINE | awk '{print $1}')
-        echo NUMBER $NUMBER
         if [ x"$NUMBER" != "x" ]; then
             vim $1 +$NUMBER
         else
