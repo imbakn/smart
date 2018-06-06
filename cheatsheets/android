@@ -1,0 +1,74 @@
+# 创建android项目
+cap
+
+# 初始化android项目
+sap
+
+# 启动system目录监控
+aw
+
+# 查看system变化文件
+ae
+
+# 自动install apk ，push其他变化文件
+ai
+
+# 自动push所有变化文件
+ap
+
+# fastboot 烧录，自动进入烧录模式，烧录 boot recovery system，结束之后重启
+fast brs
+
+# 最好用的搜索工具
+ag (agm agc agh agj agx)
+
+# 查看log文件的命令
+lg
+
+# 快速跳转android项目目录
+j
+
+# 把xx目录下的android项目添加到 j 的快速跳转列表
+genfav.bash xx
+
+# 返回andorid根目录
+t
+
+# 跳转到android输出目录
+o
+
+# 快速回退N级目录
+cdN (N 1-9)
+
+# 最好用的git终端工具
+tig
+
+# 当前目录下所有git仓库都执行命令
+egit
+
+# 快速的 repo upload
+rpush
+
+# 增强版的adb shell(带busybox)
+shl (super_adb.py)
+
+# android 端的top命令
+atop
+
+# 查看android当前activity
+ta
+
+# 快速以ubuntu默认方式打开任何文件
+g (gnome-open)
+
+# 快速的在android端登录认证wifi
+awifi
+
+# 主机端查找进程，选中kill进程
+psk (Ctrl p)
+
+# android 反编译工具集
+apktool baksmali smali jd-gui d2j-apk-sign.sh d2j-dex2jar.sh
+
+
+
