@@ -91,6 +91,7 @@ start_android_project()
             if [ -f ~/.android.projects/$PRO_NAME ];then
                 source ~/.android.projects/$PRO_NAME
                 aw
+                source ~/.smart/resource/godir.bash
                 ANDROID_PROJECT=$PRO_NAME
             else
                 echo "The project Name is not right."
