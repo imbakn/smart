@@ -16,7 +16,7 @@ function godir() {
     local lines
     lines=$(\grep /"$1" $FILELIST | sed -e 's/\/[^/]*$//' | sort | uniq)
     
-    select=$(echo "$lines" | fzf)
+    select=$(echo "$lines" | fzf -1 -e)
     
     if [ x"$select" != "x" ];then
         cd  $select
@@ -26,7 +26,7 @@ function godir() {
 
 function gg()
 {
-    if [ x"LAST_GODIR_FILE" != "x ];then
+    if [ x"LAST_GODIR_FILE" != "x" ];then
         if [ -f $LAST_GODIR_FILE ];then
             vim $LAST_GODIR_FILE
         fi
