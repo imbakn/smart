@@ -11,6 +11,9 @@ a()
     do
         PPP=$(upnum $index)
         if [ -f $PPP"Android.mk" ];then
+            DPATH=$(cd $PPP && pwd)
+            DDPATH=${DPATH#$T/}
+            echo "Go to Dir: "$DDPATH
             cd $PPP
             break
         fi

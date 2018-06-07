@@ -16,10 +16,11 @@ function godir() {
     local lines
     lines=$(\grep /"$1" $FILELIST | sed -e 's/\/[^/]*$//' | sort | uniq)
     
-    select=$(echo "$lines" | fzf -1 -e)
+    select=$(echo "$lines" | fzf -1 -e -0)
     
     if [ x"$select" != "x" ];then
-        cd  $select
+        cd  $T/$select
+        echo "Go to Dir: "$select
         LAST_GODIR_FILE=$1
     fi
 }
@@ -28,7 +29,11 @@ function gg()
 {
     if [ x"LAST_GODIR_FILE" != "x" ];then
         if [ -f $LAST_GODIR_FILE ];then
-            vim $LAST_GODIR_FILE
+            if [ $# = 1 ];then
+                vim $LAST_GODIR_FILE +$1
+            else
+                vim $LAST_GODIR_FILE
+            fi
         fi
     fi
 }
