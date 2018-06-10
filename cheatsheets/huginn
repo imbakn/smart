@@ -1,0 +1,2 @@
+# docker 启动 huginn 的命令
+sudo docker run -it -p 3000:3000 huginn/huginn
