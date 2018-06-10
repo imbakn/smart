@@ -1,0 +1,6 @@
+# 安装 masterdoc
+sudo npm install masterdoc -g
+
+# masterdoc 运行
+masterdoc -c
+
