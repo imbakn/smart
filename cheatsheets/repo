@@ -1,0 +1,11 @@
+# 获取 repo
+git clone ssh://10100xxx@192.168.130.181:29418/repo_tool
+
+# 使用 repo init 初始化代码
+repo init --no-repo-verify -u ssh://10100XXXX@192.168.130.181:29418/manifest -m ZQP1168_MP.xml
+
+# 同步代码, 仅同步本地代码增加 -l 参数
+repo sync -j4
+
+
+
