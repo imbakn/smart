@@ -1,0 +1,5 @@
+# 查看安装了那些 java
+update-alternatives --list java
+
+# 选择一个 java 作为默认的 java
+sudo update-alternatives --config java
