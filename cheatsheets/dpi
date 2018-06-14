@@ -5,9 +5,3 @@ drawable-hdpi	    ppi=240-320	    density=1.5	        72*72
 drawable-xhdpi	    ppi=320-480	    density=2	        96*96
 drawable-xxhdpi	    ppi=480-640	    density=3	        144*144
 drawable-xxxhdpi    ppi=640-800	    density=4	        192*192
-drawable-ldpi	    ppi=120-160	    density=0.75    	36*36
-drawable-mdpi	    ppi=160-240	    density=1(baseline)	48*48
-drawable-hdpi	    ppi=240-320	    density=1.5	        72*72
-drawable-xhdpi	    ppi=320-480	    density=2	        96*96
-drawable-xxhdpi	    ppi=480-640	    density=3	        144*144
-drawable-xxxhdpi    ppi=640-800	    density=4	        192*192
