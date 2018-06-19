@@ -4,5 +4,4 @@ pip install pillow
 
 python -m uiautomator2 init
 
-WEditor
-
+python -m weditor
