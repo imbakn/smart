@@ -4,27 +4,27 @@
 
 **SMART** 是我整理的一系列脚本和工具的集合，用于方便Android系统开发，它从一下几个方面对bash进行了增强。
 
-- [集成了cheat，可以非常方便的获取帮助信息](#集成了cheat，可以非常方便的获取帮助信息)
-- [集成了fzf，非常强大的模糊搜索工具](#集成了fzf，非常强大的模糊搜索工具])
-- [快速的初始化 android 工作环境](#快速的初始化 android 工作环境)
+- [集成了cheat,可以非常方便的获取帮助信息](#集成了cheat,可以非常方便的获取帮助信息)
+- [集成了fzf,非常强大的模糊搜索工具](#集成了fzf,非常强大的模糊搜索工具])
+- [快速的初始化android工作环境](#快速的初始化android工作环境)
 - [快速的目录跳转](#快速的目录跳转)
 - [快速的文件和文件内容搜索](#快速的文件和文件内容搜索)
-- [Android 模块单编之后快速的push和install](#ndroid 模块单编之后快速的push和install)
+- [Android模块单编之后快速的push和install](#android模块单编之后快速的push和install)
 - [快速的使用fastboot进行刷机](#快速的使用fastboot进行刷机)
-- [集成了busybox的adb shell](#集成了busybox的adb shel)
+- [集成了busybox的shell](#集成了busybox的shel)
 - [增强了Log查看工具](#增强了Log查看工具)
 - [提交代码的命令的封装](#提交代码的命令的封装)
 - [集成了Android常用逆向工具](#集成了Android常用逆向工具)
 - [其他有用信息](#其他有用信息)
-- [TEST](#TEST)
+
 
 ### Install
 
-一行命令进行安装
+- **一行命令进行安装**
 
 `curl https://raw.githubusercontent.com/imbakn/smart/master/install.sh -L -o - | sh`
 
-常规安装
+- **常规安装**
 
 ```bash
 git clone https://github.com/imbakn/smart ~/.smart
@@ -34,21 +34,21 @@ cd ~/.smart
 
 
 
-### 集成了cheat，可以非常方便的获取帮助信息
+### 集成了cheat,可以非常方便的获取帮助信息
 
-### 集成了fzf，非常强大的模糊搜索工具
+### 集成了fzf,非常强大的模糊搜索工具
 
-### 快速的初始化 android 工作环境
+### 快速的初始化android工作环境
 
 ### 快速的目录跳转
 
 ### 快速的文件和文件内容搜索
 
-### Android 模块单编之后快速的push和install
+### Android模块单编之后快速的push和install
 
 ### 快速的使用fastboot进行刷机
 
-### 集成了busybox的adb shell
+### 集成了busybox的shell
 
 ### 增强了Log查看工具
 
@@ -57,8 +57,6 @@ cd ~/.smart
 ### 集成了Android常用逆向工具
 
 ### 其他有用信息
-
-### TEST
 
 
 
