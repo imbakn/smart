@@ -51,31 +51,31 @@ create_android_project()
     if [ ! -f ./build/envsetup.sh ]
     then
         usage
-    fi
+    else
+        if [ -f ~/.android.projects/$PRO_NAME ]
+        then
+            echo "already has a project called this name."
+            usage
+        else
+            if [ -f ~/.android.projects ]
+            then
+                mv ~/.android.projects ~/.android.projects.bak
+            fi
 
-    if [ -f ~/.android.projects/$PRO_NAME ]
-    then
-        echo "already has a project called this name."
-        usage
-    fi
+            if [ ! -d ~/.android.projects ]
+            then
+                mkdir -p ~/.android.projects
+            fi
 
-    if [ -f ~/.android.projects ]
-    then
-        mv ~/.android.projects ~/.android.projects.bak
+            echo "init_android_project $PRO_PATH $PRODUCT_VARIANT" >> ~/.android.projects/$PRO_NAME
+            
+            export T=$PRO_PATH
+            if [ ! -f .myfavories ]; then
+                genfav.bash
+            fi
+            echo "Project "$PRO_NAME" is created successed."
+        fi
     fi
-
-    if [ ! -d ~/.android.projects ]
-    then
-        mkdir -p ~/.android.projects
-    fi
-
-    echo "init_android_project $PRO_PATH $PRODUCT_VARIANT" >> ~/.android.projects/$PRO_NAME
-    
-    export T=$PRO_PATH
-    if [ ! -f .myfavories ]; then
-        genfav.bash
-    fi
-    echo "Project "$PRO_NAME" is created successed."
 }
 
 start_android_project()

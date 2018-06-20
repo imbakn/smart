@@ -1,0 +1,5 @@
+# man 转 PDF
+man -t nc  | ps2pdf - nc.pdf
+
+# man 打印
+man -t nc  | ps2pdf -- | lpr
