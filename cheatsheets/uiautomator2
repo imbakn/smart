@@ -1,0 +1,7 @@
+pip install --pre uiautomator2
+
+pip install pillow
+
+python -m uiautomator2 init
+
+python -m weditor

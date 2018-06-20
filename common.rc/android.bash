@@ -4,9 +4,9 @@ android_auto_jump()
     if [ -f "$T/.myfavories" ]
     then
         if [ $# != 0 ];then
-            DIR=`cat $T/.myfavories | fzf -q "$*" -e`
+            DIR=`cat $T/.myfavories | fzf -q "$*" -e -1`
         else
-            DIR=`cat $T/.myfavories | fzf -e`
+            DIR=`cat $T/.myfavories | fzf -e -1`
         fi
         if [ -d "$T/$DIR" ]
         then
