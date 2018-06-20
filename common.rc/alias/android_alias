@@ -31,6 +31,7 @@ alias t='[ -z "$T" ] || eval "cd $T"'
 alias o='[ -z "$T" ] || eval "cd $T/out/target/product/$TARGET_PRODUCT"'
 alias k='[ -z "$T" ] || eval "cd $T/kernel/msm-3.18"'
 alias j='android_auto_jump'
+alias a='goto_mk_dir'
 alias mx='tmuxinator'
 
 ######################## TOOL ######################

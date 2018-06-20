@@ -5,7 +5,7 @@ upnum()
 	echo `echo "../" | awk -v num=$1 '{for(i=1;i<=num;i++) printf($0)}'`;
 }
 
-a()
+goto_mk_dir()
 {
     for index in {1..20}
     do
