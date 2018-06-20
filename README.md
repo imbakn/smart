@@ -11,9 +11,9 @@
 - [Android模块单编之后快速的push和install](#android模块单编之后快速的push和install)
 - [快速的使用fastboot进行刷机](#快速的使用fastboot进行刷机)
 - [集成了busybox的shell](#集成了busybox的shell)
-- [增强了Log查看工具](#增强了Log查看工具)
+- [增强了LOG查看工具](#增强了LOG查看工具)
 - [提交代码的命令的封装](#提交代码的命令的封装)
-- [集成了Android常用逆向工具](#集成了Android常用逆向工具)
+- [集成了常用逆向工具](#集成了常用逆向工具)
 - [其他有用信息](#其他有用信息)
 
 
@@ -47,11 +47,11 @@ cd ~/.smart
 
 ### 集成了busybox的shell
 
-### 增强了Log查看工具
+### 增强了LOG查看工具
 
 ### 提交代码的命令的封装
 
-### 集成了Android常用逆向工具
+### 集成了常用逆向工具
 
 ### 其他有用信息
 
