@@ -146,10 +146,7 @@ vi ll 等都不支持
 - d2j-dex2jar.sh d2j-apk-sign.sh 等
 
 ### 其他有用信息
-
-- [一些非常好用的脚本介绍]()
 - [如何学习VIM](./docs/how_to_learn_vim.md)
-- [Android调试技巧]()
+- [Android学习资源](./docs/resource_of_android.md)
 - [命令行神器介绍]()
-- [Android学习资源]()
-- [那些值得follow的GitHub]()
+- [有用在线工具介绍]()
