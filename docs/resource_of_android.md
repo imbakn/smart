@@ -19,7 +19,7 @@
 - [酷壳 - 陈皓](https://coolshell.cn/)
 - [阮一峰](http://www.ruanyifeng.com/home.html)
 - [王垠](http://www.yinwang.org/)
-
+- [GITHUB 排名](http://githubrank.com/)
 
 ### 4. 一些有用的Android技巧和教程
 - [Lite Your Android (久不更新)](https://litesuits.com/)
@@ -37,8 +37,12 @@
 
 ### 5. Android资源
 - [Android资源聚合](https://android-arsenal.com/free)
+- [Android开发技术前线](https://github.com/hehonghui/android-tech-frontier)
+- [java技术心得](https://github.com/aalansehaiyang/technology-talk)
 - [Android技术周报](https://www.androidweekly.cn/)
 - [Android开发和安全系列工具](https://blog.csdn.net/hp910315/article/details/55531815)
+- [TimLiu-Android](https://github.com/Tim9Liu9/TimLiu-Android)
+
 
 ### 6. 关于Android测试
 - [TesterHome](https://testerhome.com/)
