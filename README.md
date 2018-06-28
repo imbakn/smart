@@ -145,8 +145,9 @@ vi ll 等都不支持
 - smali
 - d2j-dex2jar.sh d2j-apk-sign.sh 等
 
+
 ### 其他有用信息
 - [如何学习VIM](./docs/how_to_learn_vim.md)
 - [Android学习资源](./docs/resource_of_android.md)
-- [命令行神器介绍]()
-- [有用在线工具介绍]()
+- [LINUX 神器介绍](./docs/useful_offline_tools.md)
+- [有用在线工具介绍](./docs/useful_online_tools.md)
