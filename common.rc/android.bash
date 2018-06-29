@@ -118,6 +118,17 @@ _start_android_project() {
 }
 complete -F _start_android_project start_android_project sap
 
+get_ubuntu_version()
+{
+    lsb_release -r | awk '{print $2}'
+}
+
+if [ x$(get_ubuntu_version) = x"18.04" ]
+then
+    export LC_ALL=C
+fi
+
+
 
 alias cap=create_android_project
 alias sap=start_android_project
