@@ -16,9 +16,20 @@ if [[ $ARG == *s* ]] ; then
    S=true
    echo system
 fi
+
+if [[ $ARG == *w* ]] ; then
+   W=true
+   echo system
+fi
+
 O=$T/out/target/product/$TARGET_PRODUCT
 
 adb reboot bootloader
+
+if [ x"$W" = "xtrue" ]; then
+   fastboot erase userdata
+   fastboot erase cache
+fi
 
 if [ x"$B" = "xtrue" ]; then
    fastboot flash boot $O/boot.img
