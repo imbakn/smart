@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 """
 VectorDrawable2Svg
 This script convert your VectorDrawable to a Svg
