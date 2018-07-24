@@ -7,6 +7,7 @@
 - [简单起步-Android官方培训课程中文版](http://hukai.me/android-training-course-in-chinese/index.html)
 - [系统开发必看-老罗的Android之旅](https://www.kancloud.cn/alex_wsc/androids/401771)
 - [送给想要跳槽的你-Android面试题库](http://www.jackywang.tech/AndroidInterview-Q-A/chinese/)
+- [android知识梳理](https://www.jianshu.com/p/fd82d18994ce)
 
 ### 2. Android 大牛的博客
 - [邓凡平 - 国内最早的一批android开发者](https://blog.csdn.net/innost)
