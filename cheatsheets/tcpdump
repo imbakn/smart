@@ -48,6 +48,9 @@ tcpdump -x
 # Change -X to -XX => show extra header (ethernet).
 tcpdump -X
 
+# tcpdump on android
+tcpdump  -U -s0 -w /mnt/sdcard/test host 222.222.121.183
+
 # Note on packet maching:
 # Port matching:
 # - portrange 22-23
