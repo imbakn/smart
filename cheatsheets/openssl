@@ -25,3 +25,6 @@ openssl x509 -noout -enddate
 
 # Generate Diffie-Hellman parameters:
 openssl dhparam -outform PEM -out dhparams.pem 2048
+
+# 转换为pkcs12秘钥
+openssl pkcs12 -export -out ca.pkcs12 -inkey cakey.pem -in cacert.pem
