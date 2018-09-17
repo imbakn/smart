@@ -10,6 +10,12 @@ VID=${PIDUID%:*}
 echo "vid is : "$VID
 PID=${PIDUID#*:}
 echo "pid is : "$PID
+
+if [ x"$VID" = "x" ]
+then
+    echo "nothing to add, please check it."
+    exit
+fi
 echo "add this to /etc/udev/rules.d/70-android.rules"
 
 sudo bash -c "echo \"SUBSYSTEM==\\\"usb\\\", ATTRS{idVendor}==\\\"$VID\\\", ATTRS{idProduct}==\\\"$PID\\\",MODE=\\\"0666\\\"\" >> /etc/udev/rules.d/70-android.rules"
