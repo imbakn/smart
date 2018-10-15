@@ -17,10 +17,11 @@ then
     exit
 fi
 echo "add this to /etc/udev/rules.d/70-android.rules"
-
 sudo bash -c "echo \"SUBSYSTEM==\\\"usb\\\", ATTRS{idVendor}==\\\"$VID\\\", ATTRS{idProduct}==\\\"$PID\\\",MODE=\\\"0666\\\"\" >> /etc/udev/rules.d/70-android.rules"
-TMPLIST=$(cat /etc/udev/rules.d/70-android.rules)
-sudo bash -c "echo \"$TMPLIST\" | sort | uniq > /etc/udev/rules.d/70-android.rules"
 
+TMPLIST=$(cat /etc/udev/rules.d/70-android.rules)
+sudo chmod 666 /etc/udev/rules.d/70-android.rules
+echo "$TMPLIST" | sort | uniq > /etc/udev/rules.d/70-android.rules
+sudo chmod 644 /etc/udev/rules.d/70-android.rules
 
 
