@@ -1,4 +1,10 @@
 #! /bin/bash
+if [ $# -gt 0 ] && [ $1 == "-h" ]
+then
+    echo -e "\x1b[1;33myour own reviewer list file is \x1b[0m\x1b[1;34m$T/.review.list\x1b[0m"
+    exit
+fi
+
 URL=`git remote -v | grep '(push)' | awk '{print $2}'`
 PROJECT=${URL##*9418/}
 REVIEWPATH=~/.smart/resource/review.list
@@ -10,9 +16,12 @@ REVIEWLIST=`cat $REVIEWPATH`
 RESTR=""
 for REVIEWER in $REVIEWLIST
 do
-    RESTR+=" --re $REVIEWER"
+    if [[ "$REVIEWER" != \#* ]]
+    then
+        RESTR+=" --re $REVIEWER"
+    fi
 done
-echo PROJECT=$PROJECT
+echo -e "\x1b[1;33mPROJECT=\x1b[0m\x1b[1;34m$PROJECT\x1b[0m"
 if [[ $1 == "" ]]
 then
 repo upload $PROJECT $RESTR
