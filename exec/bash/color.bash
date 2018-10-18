@@ -25,7 +25,7 @@ printColorHelp()
     echo "├─────────┼─────────────────────────────────────────────────────────────────────────┤"
     for i in {0..9}
     do
-        echo -ne "│ $(colorName $i) 3$i │ "
+        echo -ne "│ $(colorName $i)  $i │ "
         echo -ne "\x1b[1;3$i""m颜色测试\x1b[0m "
         echo -ne "\x1b[2;3$i""m颜色测试\x1b[0m "
         echo -ne "\x1b[3;3$i""m颜色测试\x1b[0m "
@@ -46,6 +46,9 @@ printColorHelp()
     echo
     echo 'echo -e "\x1b[5;34m颜色测试\x1b[0m"'
     echo -e "\x1b[5;34m颜色测试\x1b[0m"
+    echo 'echo -e "\x1b[1;44;33m颜色测试\x1b[0m"'
+    echo -e "\x1b[1;44;33m颜色测试\x1b[0m"
+    echo 'use cmd like this: color.bash -b 2 -f 3 -m 1 测试信息'
 }
 
 printColorLine()
@@ -68,10 +71,10 @@ printColorLine()
     shift $(($OPTIND - 1))
     
     if [ x"$BG_COLOR" != "x" ];then
-        BG_COLOR=$BG_COLOR";"
+        BG_COLOR="4"$BG_COLOR";"
     fi
     if [ x"$FG_COLOR" != "x" ];then
-        FG_COLOR=$FG_COLOR";"
+        FG_COLOR="3"$FG_COLOR";"
     fi
     if [ x"$FT_MODE" != "x" ];then
         FT_MODE=$FT_MODE";"
