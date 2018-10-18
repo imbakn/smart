@@ -1,11 +1,22 @@
 #! /bin/bash
 URL=`git remote -v | grep '(push)' | awk '{print $2}'`
 PROJECT=${URL##*9418/}
+REVIEWPATH=~/.smart/resource/review.list
+if [ -f $T/.review.list ]
+then
+    REVIEWPATH=$T/.review.list
+fi
+REVIEWLIST=`cat $REVIEWPATH`
+RESTR=""
+for REVIEWER in $REVIEWLIST
+do
+    RESTR+=" --re $REVIEWER"
+done
 echo PROJECT=$PROJECT
 if [[ $1 == "" ]]
 then
-repo upload $PROJECT --re=taojinjing@huaqin.com
+repo upload $PROJECT $RESTR
 else
-repo upload $PROJECT -D $1
+repo upload $PROJECT $RESTR -D $1
 fi
 
