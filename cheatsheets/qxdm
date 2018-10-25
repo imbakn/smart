@@ -1,0 +1,3 @@
+diag_mdlog -f /sdcard/diag_logs/diag.cfg -b -c &
+
+diag_mdlog -k
