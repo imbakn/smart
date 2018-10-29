@@ -1,0 +1,8 @@
+#modem编译打包
+make non-hlos-clean -j8
+make non-hlos -j8
+
+#烧录NON-HLOS.bin文件
+adb reboot bootloader
+fastboot flash modem NON-HLOS.bin
+fastboot reboot
