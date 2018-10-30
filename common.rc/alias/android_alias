@@ -30,6 +30,9 @@ alias rs='repo sync -j4 2>/tmp/repo_sync.log ; echo "=============NOTE THIS=====
 alias gpush="git status | fpp -c git_auto_push.bash"
 alias rpush="git status | fpp -c repo_auto_upload.bash"
 
+alias rpb="export UPLOAD_TYPE=bug && git status | fpp -c repo_auto_upload.bash"
+alias rpf="export UPLOAD_TYPE=feature && git status | fpp -c repo_auto_upload.bash"
+
 ###################### CHANGE DIR ####################
 alias t='[ -z "$T" ] || eval "cd $T"'
 alias o='[ -z "$T" ] || eval "cd $T/out/target/product/$TARGET_PRODUCT"'
