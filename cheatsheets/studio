@@ -1,0 +1,18 @@
+#先进入对应的项目下对应的目录
+cd development/tools/idegen/
+
+#此目录下用mm编译生成对应的文件然后退到根目录执行下面的命令
+development/tools/idegen/idegen.sh
+
+#用命令修改文件名字（修改名字防止许多项目弄混淆）
+mv android.ipr android_watch.ipr
+mv android.iml android_watch.iml
+
+#进入android_watch.ipr将之前的android.iml名称改为android_watch.iml
+
+#进入gedit android_watch.iml文件修改文件，删除out目录（看代码没必要导入out）
+#<orderEntry type="sourceFolder" forTests="false" />
+#<orderEntry type="inheritedJdk" />
+#这两个路径提到所有的orderEntry前面（按Ctrl联想的时候先在目录下跳转，不在jar包中跳转）
+
+#在android-studio 中打开对应目录的android_watch.ipr这个文件即可
