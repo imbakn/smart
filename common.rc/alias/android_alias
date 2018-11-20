@@ -21,6 +21,7 @@ alias lg="log_search.bash"
 alias aw="nohup android_inotify.py  >/dev/null 2>&1 &"
 alias adw="nohup android_inotify.py data >/dev/null 2>&1 &"
 alias ae='[ -f "$T/.system.change" ] && vim "$T/.system.change"'
+alias ac='[ -f "$T/.system.change" ] && cat "$T/.system.change"'
 alias ap="adb wait-for-device && auto_push"
 alias ai="adb wait-for-device && auto_install"
 
